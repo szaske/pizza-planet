@@ -38,7 +38,7 @@
       <h2>Add to cart</h2>
       <div class="form-group">
         <div class="col-lg-10 col-lg-offset-2">
-          <button id="cart" class="btn btn-primary">Add to cart</button>
+          <button id="cartButton" class="btn btn-primary">Add to cart</button>
         </div>
       </div>
     </div>
@@ -53,29 +53,29 @@
                 <div class="divTable">
                   <div id="cartItems" class="divTableBody">
                     <div class="divTableRow">
-                      <div class="divTableCell">Items</div>
-                      <div class="divTableCell">Price</div>
+                      <div class="divTablePizzaCol">Items</div>
+                      <div class="text-right divTablePriceCol">Price</div>
                     </div>
                   </div>
                   <div class="divTableRow">
-                    <div class="divTableCell">sub-total</div>
-                    <div class="divTableCell"><span class="cartTotal" id="preTaxSpan"></span></div>
+                    <div class="text-right divTablePizzaCol">sub-total</div>
+                    <div class="text-right divTablePriceCol"><span class="cartTotal" id="preTaxSpan"></span></div>
                   </div>
                   <div class="divTableRow">
-                    <div class="divTableCell">tax</div>
-                    <div class="divTableCell"><span class="cartTotal" id="taxSpan"></span></div>
+                    <div class="text-right divTablePizzaCol">tax</div>
+                    <div class="text-right divTablePriceCol"><span class="cartTotal" id="taxSpan"></span></div>
                   </div>
                   <div class="divTableRow">
-                    <div class="divTableCell">TOTAL</div>
-                    <div class="divTableCell"><span class="cartTotal" id="totalSpan"></span></div>
+                    <div class="text-right divTablePizzaCol">TOTAL</div>
+                    <div class="text-right divTablePriceCol"><span class="cartTotal" id="totalSpan"></span></div>
                   </div>
                 </div>
               </div>
 
               <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
-                  <button id="reset" class="btn btn-default">Reset</button>
-                  <button id="checkout" class="btn btn-primary">Checkout</button>
+                  <button id="resetButton" class="btn btn-default">Reset</button>
+                  <button id="checkoutButton" class="btn btn-primary">Checkout</button>
                 </div>
               </div>
         </div>

@@ -9,6 +9,8 @@ An example pizza company website that allows users to select a pizza with toppin
 5. Website layout shows the "cart"; the pizza ordered showing size and list of toppings and total price
 6. Site includes a Add to cart button, that moves the currently selected pizza and toppings to the cart selections.
 7. Site includes a "reset" button, that clears the currently selected pizza.
+8. the "add to cart" button is disabled when the page loads.
+9. if no size or toppings are selected, the "add to cart" button will be disabled.
 
 
 ## What's included

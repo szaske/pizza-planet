@@ -1,5 +1,9 @@
+////////////////////////////////////
 //BUSINESS LOGIC
-//Our Pizza Prices, entered here for easy editing
+////////////////////////////////////
+//code by Steve Zaske
+
+//Variables here for easy editing
 var smlPizzaPrice = 10.99;
 var medPizzaPrice = 13.99;
 var lrgPizzaPrice = 15.99;
@@ -62,8 +66,10 @@ console.log(test.toFixed(2));
 var newCart = new Cart();
 
 
-
+////////////////////////////////////
 //UI LOGIC
+////////////////////////////////////
+
 // function capitalized(string) {
 //     return string.charAt(0).toUpperCase() + string.slice(1);
 // }
@@ -73,12 +79,16 @@ var newCart = new Cart();
 $(document).ready(function() {
 
   function initialize() {
-    $("#reset").click(resetPressed);
-    $("#cart").click(cartPressed);
+    $("#resetButton").click(resetPressed);
+    $("#cartButton").click(cartPressed);
+    $("#cartButton").prop('disabled', true);
+    console.log("current cart:",newCart,", and current pizza:",newPizza);
   }
 
   function sizeSelected() {
     var clicked = this.firstChild.innerHTML;
+    $("#cartButton").prop('disabled', false);  // enable cart button
+
     if (newPizza.size!=clicked){
       //change size of pizza
       newPizza.size = clicked;
@@ -123,18 +133,26 @@ $(document).ready(function() {
   function resetPressed(){
     resetPizza();
     resetCart();
+    $("#cart").hide();
+    disableCartButton();
+  }
+
+  function disableCartButton(){
+    $("#cartButton").prop('disabled', true);
   }
 
   function cartPressed() {
     newCart.items.push(newPizza);
 
     var cartDesc = newPizza.size + " Pizza:" + newPizza.toppings.join(", ");
-    $("#cartItems").append("<div class='cartItemRow divTableRow'><div class='divTableCell'>"+cartDesc+"</div><div class='divTableCell'>"+newPizza.price()+"</div></div>");
+    $("#cartItems").append("<div class='cartItemRow divTableRow'><div class='divTablePizzaCol'>"+cartDesc+"</div><div class='text-right divTablePriceCol'>"+newPizza.price()+"</div></div>");
 
     $("#preTaxSpan").text(showMeTheMoney(newCart.preTaxTotal()));
     $("#taxSpan").text(showMeTheMoney(newCart.taxTotal()));
     $("#totalSpan").text(showMeTheMoney(newCart.total()));
     resetPizza();
+    $("#cart").show();
+    disableCartButton();
     console.log(newCart, "cart total price is ", newCart.preTaxTotal());
   }
 
@@ -156,8 +174,6 @@ $(document).ready(function() {
   //initialize web page;
   initialize();
 
-
-  console.log(newCart, "cart total price is ", newCart.preTaxTotal());
 
   //add the pizza to the cart item
 });
