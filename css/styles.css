@@ -22,3 +22,7 @@ body {
   margin-right: 50px;
   opacity: .7;
 }
+.selected {
+  background-color: green;
+  color: yellow;
+}

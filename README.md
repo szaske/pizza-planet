@@ -33,6 +33,7 @@ Direct questions and comments to: [github@zaske.com](mailto:github@zaske.com)
 * jQuery
 * Bootstrap
 * Google Fonts
+* Lodash
 
 ### License
 Copyright 2017 Steve Zaske
