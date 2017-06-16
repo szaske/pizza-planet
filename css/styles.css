@@ -1,9 +1,9 @@
 body {
-  background-color: #F5F5F5;
+  background-color: #444;
 }
 
 #container {
-  background-color: #FFF;
+  background-color: #F5F5F5;
   margin-top: 15px;
   padding: 45px;
   border: .4px solid #555;
@@ -54,6 +54,30 @@ body {
 	display: table-row-group;
 }
 
-/*#cart {
+#cart {
   display: none;
-}*/
+}
+
+#title {
+  font-family: Wire One;
+  font-size: 180px;
+  color: red;
+}
+
+.size :hover {
+  cursor: pointer;
+  font-style: italic;
+  font-weight: bolder;
+}
+
+.topping :hover {
+  cursor: pointer;
+  font-style: italic;
+  font-weight: bolder;
+}
+
+.topping {
+  font-family: Wire One;
+  font-size: 24px;
+  font-weight: bolder;
+}
