@@ -6,6 +6,7 @@ var lrgPizzaPrice = 15.99;
 var toppingPrice = 1.5;
 var toppings = ["Pepperoni","Pineapple","Sausage","Bacon","Ham","Onions","Salami","Artichoke","Prosciutto"];
 var sizes = ["small", "medium", "large"];
+var taxRate = .099;
 
 //Our cart object constructor
 function Cart(){
@@ -17,9 +18,11 @@ function Cart(){
     });
     return calculatedTotal;
   }
-  this.tax = function() {
-    this.taxRate = .099;
-    return 3.45;
+  this.taxTotal = function() {
+    return this.preTaxTotal() * taxRate;
+  }
+  this.total = function(){
+    return this.preTaxTotal()+this.taxTotal();
   }
 } // end of Cart
 
@@ -48,6 +51,13 @@ function Pizza(){
 
 } //end of pizza
 
+//re-formats a number as $$
+function showMeTheMoney(num) {
+  return "$" + num.toFixed(2).toString();
+}
+
+var test= 7.3334433;
+console.log(test.toFixed(2));
 //create a cart when the page loads
 var newCart = new Cart();
 
@@ -107,6 +117,7 @@ $(document).ready(function() {
   function resetCart() {
     newCart = new Cart();
     $(".cartItemRow").remove();
+    $(".cartTotal").text("$0.00");
   }
 
   function resetPressed(){
@@ -120,6 +131,9 @@ $(document).ready(function() {
     var cartDesc = newPizza.size + " Pizza:" + newPizza.toppings.join(", ");
     $("#cartItems").append("<div class='cartItemRow divTableRow'><div class='divTableCell'>"+cartDesc+"</div><div class='divTableCell'>"+newPizza.price()+"</div></div>");
 
+    $("#preTaxSpan").text(showMeTheMoney(newCart.preTaxTotal()));
+    $("#taxSpan").text(showMeTheMoney(newCart.taxTotal()));
+    $("#totalSpan").text(showMeTheMoney(newCart.total()));
     resetPizza();
     console.log(newCart, "cart total price is ", newCart.preTaxTotal());
   }

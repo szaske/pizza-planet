@@ -47,10 +47,10 @@
 
       <!-- the order form -->
       <div class="col-lg-12">
-        <div class="well bs-component">
+        <div id="cart" class="well bs-component">
               <h4>Cart</h4>
               <div class="form-group">
-                <div id="cart" class="divTable">
+                <div class="divTable">
                   <div id="cartItems" class="divTableBody">
                     <div class="divTableRow">
                       <div class="divTableCell">Items</div>
@@ -58,8 +58,16 @@
                     </div>
                   </div>
                   <div class="divTableRow">
-                    <div class="divTableCell">Total</div>
-                    <div class="divTableCell">$200.30</div>
+                    <div class="divTableCell">sub-total</div>
+                    <div class="divTableCell"><span class="cartTotal" id="preTaxSpan"></span></div>
+                  </div>
+                  <div class="divTableRow">
+                    <div class="divTableCell">tax</div>
+                    <div class="divTableCell"><span class="cartTotal" id="taxSpan"></span></div>
+                  </div>
+                  <div class="divTableRow">
+                    <div class="divTableCell">TOTAL</div>
+                    <div class="divTableCell"><span class="cartTotal" id="totalSpan"></span></div>
                   </div>
                 </div>
               </div>
