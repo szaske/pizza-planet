@@ -25,7 +25,7 @@ function Cart(){
 
 //The Pizza object constructor
 function Pizza(){
-  this.size;
+  this.size = "";
   this.toppings = [];
   this.price = function() {
     var calculatedPrice = 0;
@@ -63,7 +63,8 @@ var newCart = new Cart();
 $(document).ready(function() {
 
   function initialize() {
-    
+    $("#reset").click(resetPressed);
+    $("#cart").click(cartPressed);
   }
 
   function sizeSelected() {
@@ -98,12 +99,30 @@ $(document).ready(function() {
 
   }
 
-function ResetPressed(){
-  newPizza.size = "";
-  newPizza.topping = [];
-  $(".selected").removeClass("selected");
-}
+  function resetPizza() {
+    newPizza = new Pizza();
+    $(".selected").removeClass("selected");
+  }
 
+  function resetCart() {
+    newCart = new Cart();
+    $(".cartItemRow").remove();
+  }
+
+  function resetPressed(){
+    resetPizza();
+    resetCart();
+  }
+
+  function cartPressed() {
+    newCart.items.push(newPizza);
+
+    var cartDesc = newPizza.size + " Pizza:" + newPizza.toppings.join(", ");
+    $("#cartItems").append("<div class='cartItemRow divTableRow'><div class='divTableCell'>"+cartDesc+"</div><div class='divTableCell'>"+newPizza.price()+"</div></div>");
+
+    resetPizza();
+    console.log(newCart, "cart total price is ", newCart.preTaxTotal());
+  }
 
   //build the sizes html
   sizes.forEach(function(size){
@@ -117,13 +136,12 @@ function ResetPressed(){
     $(".topping").last().click(toppingSelected);
   });
 
-  //create a new pizza item and
+  //create a new pizza object
   var newPizza = new Pizza();
 
+  //initialize web page;
+  initialize();
 
-
-  //add pizza to cart
-  newCart.items.push(newPizza);
 
   console.log(newCart, "cart total price is ", newCart.preTaxTotal());
 
