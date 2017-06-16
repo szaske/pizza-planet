@@ -17,13 +17,13 @@ An example pizza company website that allows users to select a pizza with toppin
 Within the repository you'll find the following directories and files:
 
 ```
-html-dev-template/
+pizza-planet/
 ├── css/
 │    ├── styles.css
 │    └── bootstrap.css
 ├── js/
 │    ├── jquery-3.2.1.js
-│    └── script.js
+│    └── scripts.js
 ├── index.html
 └── README.md
 ```
